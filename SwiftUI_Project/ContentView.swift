@@ -9,36 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State private var wifiEnabled = true
-    @State private var userName = ""
+
+    @ObservedObject var demoData : DemoData
     
     var body: some View {
-        VStack{
-            Toggle(isOn: $wifiEnabled){
-                Text("Enable Wi-Fi")
-            }
-            TextField("Enter user name", text: $userName)
-            WifiImageView(wifiEnabled: $wifiEnabled)
-        }
+        Text("\(demoData.currentUser), you are user number \(demoData.userCount)")
     }
 }
-
-
-struct WifiImageView: View {
-    
-    @Binding var wifiEnabled : Bool
-    
-    var body: some View{
-        Image(systemName: wifiEnabled ? "wifi":"wifi.slash")
-    }
-}
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            ContentView()
+            ContentView(demoData: DemoData())
             .previewDisplayName("iPhone 11")
             .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
         }
