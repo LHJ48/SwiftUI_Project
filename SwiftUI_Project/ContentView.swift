@@ -10,30 +10,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .center, spacing: 15){
-            Text("Financial Results")
-                .font(.title)
-            
-            HStack(alignment: .top){
-                Text("Q1 Sales")
-                    .font(.headline)
-                Spacer()
-                VStack(alignment: .leading){
-                    Text("January")
-                    Text("February")
-                    Text("March")
-                }
-                Spacer()
-                VStack(alignment: .leading){
-                    Text("$1000")
-                    Text("$200")
-                    Text("$3000")
-                }
-            .padding(5)
-            }
-        .padding(5)
+        VStack{
+            Text("Hello World")
+                .font(.largeTitle)
+                .border(Color.black)
+                .frame(width: 100, height: 100, alignment: .center)
+            Text("Hello World, how are you?")
+                .font(.largeTitle)
+                .border(Color.black)
+                .frame(minWidth: 100, maxWidth: 300, minHeight: 100, maxHeight: 100, alignment:.center)
+            Text("Hello World, how are you?")
+                .font(.largeTitle)
+                .border(Color.black)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .border(Color.black, width: 5)
         }
-    .padding(5)
     }
 }
 
