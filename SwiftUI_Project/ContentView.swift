@@ -10,12 +10,39 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack(alignment: .center, spacing: 15){
+            Text("Financial Results")
+                .font(.title)
+            
+            HStack(alignment: .top){
+                Text("Q1 Sales")
+                    .font(.headline)
+                Spacer()
+                VStack(alignment: .leading){
+                    Text("January")
+                    Text("February")
+                    Text("March")
+                }
+                Spacer()
+                VStack(alignment: .leading){
+                    Text("$1000")
+                    Text("$200")
+                    Text("$3000")
+                }
+            .padding(5)
+            }
+        .padding(5)
+        }
+    .padding(5)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group{
+            ContentView()
+            .previewDisplayName("iPhone 11")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+        }
     }
 }
