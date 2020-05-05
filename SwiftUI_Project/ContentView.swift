@@ -19,11 +19,21 @@ struct ContentView: View {
                 Text("Enable Wi-Fi")
             }
             TextField("Enter user name", text: $userName)
-            Text(userName)
-            Image(systemName: wifiEnabled ? "wifi":"wifi.slash")
+            WifiImageView(wifiEnabled: $wifiEnabled)
         }
     }
 }
+
+
+struct WifiImageView: View {
+    
+    @Binding var wifiEnabled : Bool
+    
+    var body: some View{
+        Image(systemName: wifiEnabled ? "wifi":"wifi.slash")
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
