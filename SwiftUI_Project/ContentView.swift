@@ -9,21 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var wifiEnabled = true
+    @State private var userName = ""
+    
     var body: some View {
         VStack{
-            Text("Hello World")
-                .font(.largeTitle)
-                .border(Color.black)
-                .frame(width: 100, height: 100, alignment: .center)
-            Text("Hello World, how are you?")
-                .font(.largeTitle)
-                .border(Color.black)
-                .frame(minWidth: 100, maxWidth: 300, minHeight: 100, maxHeight: 100, alignment:.center)
-            Text("Hello World, how are you?")
-                .font(.largeTitle)
-                .border(Color.black)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .border(Color.black, width: 5)
+            Toggle(isOn: $wifiEnabled){
+                Text("Enable Wi-Fi")
+            }
+            TextField("Enter user name", text: $userName)
+            Text(userName)
+            Image(systemName: wifiEnabled ? "wifi":"wifi.slash")
         }
     }
 }
