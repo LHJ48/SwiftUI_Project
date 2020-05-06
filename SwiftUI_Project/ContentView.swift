@@ -9,18 +9,29 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    @ObservedObject var demoData : DemoData
     
     var body: some View {
-        Text("\(demoData.currentUser), you are user number \(demoData.userCount)")
+        List{
+            HStack{
+                Image(systemName: "trash.circle.fill")
+                Text("Take out the trash")
+            }
+            HStack{
+                Image(systemName: "person.2.fill")
+                Text("Pick up the kids")
+            }
+            HStack{
+                Image(systemName: "car.fill")
+                Text("Wash the car")
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            ContentView(demoData: DemoData())
+            ContentView()
             .previewDisplayName("iPhone 11")
             .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
         }
